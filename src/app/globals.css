@@ -3,6 +3,29 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Teal Color System */
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+  --color-teal-950: #0d3331;
+  
+  /* Primary brand colors */
+  --color-primary: #0d9488;
+  --color-primary-light: #14b8a6;
+  --color-primary-dark: #0f766e;
+  
+  /* Secondary accents */
+  --color-accent-1: #06b6d4;
+  --color-accent-2: #0891b2;
+  --color-accent-3: #0e7490;
 }
 
 @theme inline {
@@ -22,5 +45,107 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+}
+
+@layer base {
+  :root {
+    --color-teal: #0D7A8A;
+    --color-teal-dark: #0A5F6E;
+    --color-teal-light: #4DB6C7;
+  }
+}
+
+@layer components {
+  /* Card Components */
+  .card {
+    @apply rounded-2xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+  }
+
+  .card-lg {
+    @apply rounded-3xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-lg p-8 transition-all duration-300 hover:shadow-2xl;
+  }
+
+  /* Button Variants */
+  .btn-primary {
+    @apply px-4 py-2 rounded-xl bg-linear-to-r from-teal-500 to-teal-400 text-white font-bold shadow-lg hover:shadow-xl transition-all;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-xl bg-gray-100/80 text-gray-600 font-medium hover:bg-gray-200 border border-gray-200 transition-all;
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-linear-to-r from-gray-900 via-teal-600 to-gray-600 bg-clip-text text-transparent;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply backdrop-blur-xl bg-white/60 border border-white/60;
+  }
+
+  /* Stat Box */
+  .stat-box {
+    @apply rounded-2xl p-6 border border-white/60 backdrop-blur-xl shadow-lg transition-all duration-300 hover:shadow-xl;
+  }
+}
+
+@layer utilities {
+  /* Teal Color Utilities */
+  .bg-teal {
+    background-color: var(--color-teal);
+  }
+  .bg-teal-dark {
+    background-color: var(--color-teal-dark);
+  }
+  .bg-teal-light {
+    background-color: var(--color-teal-light);
+  }
+  .text-teal {
+    color: var(--color-teal);
+  }
+  .text-teal-dark {
+    color: var(--color-teal-dark);
+  }
+  .text-teal-light {
+    color: var(--color-teal-light);
+  }
+  .border-teal {
+    border-color: var(--color-teal);
+  }
+  .border-teal-dark {
+    border-color: var(--color-teal-dark);
+  }
+  .border-teal-light {
+    border-color: var(--color-teal-light);
+  }
+  .ring-teal {
+    --tw-ring-color: var(--color-teal);
+  }
+  .ring-teal-light {
+    --tw-ring-color: var(--color-teal-light);
+  }
+
+  /* Gradient utilities for Tailwind v4 */
+  .gradient-teal {
+    @apply bg-linear-to-r from-teal-600 to-teal-400;
+  }
+
+  .gradient-teal-light {
+    @apply bg-linear-to-br from-teal-50 to-cyan-50;
+  }
+
+  .gradient-teal-dark {
+    @apply bg-linear-to-br from-teal-900 to-teal-700;
+  }
+
+  /* Shadow utilities */
+  .shadow-glow {
+    @apply shadow-2xl shadow-teal-500/20;
+  }
+
+  .shadow-glow-sm {
+    @apply shadow-lg shadow-teal-500/10;
+  }
 }
