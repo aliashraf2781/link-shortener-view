@@ -122,7 +122,7 @@ export async function getAnalyticsOverview() {
 export async function getClicksOverTime(params?: {
 	from?: string;
 	to?: string;
-	period?: "year" | "monthly" | "weekly";
+	period?: "year" | "month" | "week";
 }) {
 	const response = await api.get<ApiResponse<ClicksOverTime>>(
 		"/clicks-over-time",

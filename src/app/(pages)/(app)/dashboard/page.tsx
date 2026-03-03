@@ -110,7 +110,7 @@ export default function DashboardPage() {
 							className="rounded bg-gray-100 px-2 py-1 text-xs font-mono text-teal-dark hover:bg-gray-200 transition max-w-xs truncate flex items-center gap-1"
 							title={fullUrl}
 						>
-							<span className="truncate">{fullUrl}</span>
+							<span className="truncate">{shortLink}</span>
 							<FiExternalLink className="h-3 w-3 shrink-0" />
 						</a>
 						<button
