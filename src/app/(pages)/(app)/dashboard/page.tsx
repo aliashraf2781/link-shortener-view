@@ -76,8 +76,13 @@ export default function DashboardPage() {
 		}
 	};
 
-	const handleToggleClick = (id: number) => {
-		setToggleConfirmLinkId(id);
+	const handleToggleClick = (link: Link) => {
+		if (link.is_active === "active") {
+			setToggleConfirmLinkId(link.id);
+			return;
+		}
+
+		toggleLink(link.id);
 	};
 
 	const handleConfirmToggle = () => {
@@ -186,7 +191,7 @@ export default function DashboardPage() {
 						<FiGrid className="h-4 w-4" />
 					</button>
 					<button
-						onClick={() => handleToggleClick(link.id)}
+						onClick={() => handleToggleClick(link)}
 						className="rounded-lg p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition"
 						title="Toggle status"
 					>
