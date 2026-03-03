@@ -5,7 +5,7 @@ export default function Loading() {
 			<div className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-teal-light/20 blur-3xl" />
 
 			<div className="relative mx-auto flex min-h-screen w-full max-w-2xl flex-col items-center justify-center px-6 text-center">
-				<div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal shadow-sm">
+				<div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-800/20 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal shadow-sm">
 					Redirect service
 				</div>
 
@@ -16,7 +16,7 @@ export default function Loading() {
 					We are resolving the destination securely.
 				</p>
 
-				<div className="mt-8 w-full rounded-3xl border border-teal/10 bg-white/80 p-6 shadow-[0_30px_80px_-40px_rgba(13,122,138,0.6)] backdrop-blur">
+				<div className="mt-8 w-full rounded-3xl border border-teal-800/20 bg-white/80 p-6 shadow-[0_30px_80px_-40px_rgba(13,122,138,0.6)] backdrop-blur">
 					<div className="flex flex-col gap-3 text-left">
 						<span className="text-xs font-semibold uppercase tracking-wide text-gray-400">
 							Destination

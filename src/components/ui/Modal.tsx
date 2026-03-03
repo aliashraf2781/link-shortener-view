@@ -130,7 +130,7 @@ const Modal: React.FC<ModalProps> = ({
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-teal/10">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-teal-800/20">
           <h2 className="text-lg font-semibold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
             {title ?? ""}
           </h2>
@@ -147,7 +147,7 @@ const Modal: React.FC<ModalProps> = ({
 
         {/* Footer */}
         {footer && (
-          <div className="px-6 py-4 border-t border-teal/10 flex items-center justify-end gap-2 bg-linear-to-b from-white/0 to-teal/5">
+          <div className="px-6 py-4 border-t border-teal-800/20 flex items-center justify-end gap-2 bg-linear-to-b from-white/0 to-teal/5">
             {footer}
           </div>
         )}

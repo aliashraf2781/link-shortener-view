@@ -43,11 +43,11 @@ type FormFieldProps = InputFieldProps | SelectFieldProps;
 
 const variantBase: Record<FieldVariant, string> = {
   default:
-    "border border-teal/10 rounded-lg bg-linear-to-br from-white to-teal/5 focus-within:border-teal focus-within:ring-2 ring-teal/20 transition-all",
+    "border border-teal-800/20 rounded-lg bg-linear-to-br from-white to-teal/5 focus-within:border-teal focus-within:ring-2 ring-teal/20 transition-all",
   filled:
     "border border-transparent rounded-lg bg-linear-to-br from-teal/10 to-cyan/10 focus-within:bg-linear-to-br focus-within:from-teal/15 focus-within:to-cyan/15 focus-within:border-teal focus-within:ring-2 ring-teal/20",
   underline:
-    "border-b-2 border-teal/20 rounded-none bg-transparent focus-within:border-teal focus-within:shadow-sm",
+    "border-b-2 border-teal-800/20 rounded-none bg-transparent focus-within:border-teal focus-within:shadow-sm",
 };
 
 const FormField = React.forwardRef<

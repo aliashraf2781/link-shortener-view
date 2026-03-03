@@ -104,7 +104,7 @@ export function VerifyOtpForm() {
 			<div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-teal-light/30 blur-3xl" />
 			<div className="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-teal/20 blur-3xl" />
 
-			<div className="relative w-full max-w-md space-y-7 rounded-3xl border border-teal/15 bg-white/90 p-8 shadow-[0_20px_60px_-30px_rgba(13,122,138,0.6)] backdrop-blur">
+			<div className="relative w-full max-w-md space-y-7 rounded-3xl border border-teal-800/20 bg-white/90 p-8 shadow-[0_20px_60px_-30px_rgba(13,122,138,0.6)] backdrop-blur">
 				<div className="space-y-3 text-center">
 					<span className="inline-flex items-center rounded-full bg-teal/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal">
 						Verify code

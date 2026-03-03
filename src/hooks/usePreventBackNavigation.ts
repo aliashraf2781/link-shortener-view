@@ -30,7 +30,6 @@ export function usePreventBackNavigation() {
 
 		window.addEventListener("popstate", handlePopState);
 
-		// Cleanup
 		return () => {
 			window.removeEventListener("popstate", handlePopState);
 		};

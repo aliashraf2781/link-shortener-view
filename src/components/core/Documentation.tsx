@@ -531,7 +531,7 @@ Content-Type: application/json
       {/* Security Section */}
       <div className="px-4 py-16 sm:px-6 lg:px-8 bg-white">
         <div className="mx-auto max-w-6xl">
-          <div className="rounded-lg border border-teal/20 bg-teal/5 p-8">
+          <div className="rounded-lg border border-teal-800/20 bg-teal/5 p-8">
             <div className="flex items-start gap-4">
               <FiShield className="h-8 w-8 text-teal shrink-0 mt-1" />
               <div>

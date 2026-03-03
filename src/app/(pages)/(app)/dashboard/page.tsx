@@ -285,7 +285,7 @@ export default function DashboardPage() {
 				{isLoading ? (
 					<div className="flex items-center justify-center py-12">
 						<div className="text-center">
-							<div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-teal/20 border-t-teal mb-4" />
+							<div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-teal-800/20 border-t-teal mb-4" />
 							<p className="text-gray-600 font-medium">Loading your links...</p>
 						</div>
 					</div>
