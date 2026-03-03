@@ -18,7 +18,7 @@ const ANALYTICS_QUERY_KEYS = {
 	clicksOverTime: (params?: {
 		from?: string;
 		to?: string;
-		period?: "year" | "monthly" | "weekly";
+		period?: "year" | "month" | "week";
 	}) => ["analytics", "clicksOverTime", params],
 	linkAnalytics: (linkId: number) => ["analytics", "link", linkId],
 	recentClicks: () => ["analytics", "recentClicks"],
@@ -39,7 +39,7 @@ export function useClicksOverTimeQuery(
 	params?: {
 		from?: string;
 		to?: string;
-		period?: "year" | "monthly" | "weekly";
+		period?: "year" | "month" | "week";
 	},
 	options?: UseQueryOptions<ClicksOverTime, Error>
 ) {

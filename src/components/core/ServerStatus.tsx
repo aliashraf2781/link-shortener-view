@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FiCheck, FiX, FiClock } from "react-icons/fi";
-import { api } from "@/lib/axios";
 
 interface ServerHealth {
     backend: {
@@ -24,8 +23,9 @@ export function ServerStatus() {
         const checkServer = async () => {
             try {
                 const startTime = performance.now();
-                await api.get("/links", {
-                    timeout: 5000,
+                await fetch(process.env.NEXT_PUBLIC_API_URL || "", {
+                    // params: { url: process.env.NEXT_PUBLIC_API_URL },
+                    // timeout: 5000,
                 });
                 const endTime = performance.now();
                 const responseTime = Math.round(endTime - startTime);

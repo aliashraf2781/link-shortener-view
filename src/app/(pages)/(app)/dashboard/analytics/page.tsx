@@ -75,8 +75,8 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
 };
 
 export default function AnalyticsPage() {
-	const [period, setPeriod] = useState<"weekly" | "monthly" | "year">(
-		"weekly"
+	const [period, setPeriod] = useState<"week" | "month" | "year">(
+		"week"
 	);
 
 	const {
@@ -318,8 +318,8 @@ export default function AnalyticsPage() {
 									<div className="flex gap-2 mb-4">
 										{(
 											[
-												"weekly",
-												"monthly",
+												"week",
+												"month",
 												"year",
 											] as const
 										).map((p) => (
@@ -332,9 +332,9 @@ export default function AnalyticsPage() {
 														: "bg-teal-50 text-teal-700 hover:bg-teal-100 border border-teal-200"
 												}`}
 											>
-												{p === "weekly"
+												{p === "week"
 													? "Week"
-													: p === "monthly"
+													: p === "month"
 														? "Month"
 														: "Year"}
 											</button>

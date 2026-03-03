@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getSession } from "next-auth/react";
+import { getSession, signOut } from "next-auth/react";
 import type { QueryClient } from "@tanstack/react-query";
 
 let queryClient: QueryClient | null = null;
@@ -8,24 +8,36 @@ export function setQueryClient(client: QueryClient) {
   queryClient = client;
 }
 
-const token = await getSession();
 export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     "Content-Type": "application/json",
     "ngrok-skip-browser-warning": "true",
-    Authorization: token?.accessToken
-      ? `Bearer ${token.accessToken}`
-      : undefined,
   },
   validateStatus: (status) => status >= 200 && status < 300,
 });
 
+// Request interceptor to add token
+api.interceptors.request.use(
+  async (config) => {
+    const session = await getSession();
+    if (session?.accessToken) {
+      config.headers.Authorization = `Bearer ${session.accessToken}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+// Response interceptor to handle 401
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if ((error?.response?.status === 401 || error?.response?.status === 403) && queryClient) {
-      queryClient.invalidateQueries();
+    if (error?.response?.status === 401 || error?.response?.status === 403) {
+      if (queryClient) {
+        queryClient.invalidateQueries();
+      }
+      signOut({ callbackUrl: "/auth/login" });
     }
     return Promise.reject(error);
   },

@@ -101,7 +101,7 @@ const FormField = React.forwardRef<
           {LeftIcon && <LeftIcon className="text-gray-400 text-lg shrink-0" />}
           <select
             ref={ref as React.Ref<HTMLSelectElement>}
-            className={cn(inputCn, "appearance-none cursor-pointer", className)}
+            className={cn(inputCn, "appearance-none cursor-pointer text-gray-900", className)}
             {...selectRest}
           >
             {placeholder && (

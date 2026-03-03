@@ -30,7 +30,7 @@ export type AnalyticsOverview = {
 };
 
 export type ClicksOverTime = {
-	period: "year" | "monthly" | "weekly";
+	period: "year" | "month" | "week";
 	clicks_over_time: Array<{
 		date: string;
 		clicks: number;

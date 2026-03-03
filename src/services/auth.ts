@@ -49,7 +49,7 @@ function getMessage(data: ApiResponse | undefined, fallback: string) {
 
 function assertSuccess(data: ApiResponse | undefined, fallback: string) {
   const hasError =
-    (typeof data?.status === "number" && data.status !== 200) ||
+    (typeof data?.status === "number" && data.status !== 200 && data.status !== 201) ||
     data?.success === false ||
     data?.status === "error" ||
     Boolean(data?.error) ||

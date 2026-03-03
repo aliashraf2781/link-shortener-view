@@ -118,9 +118,9 @@ export default function SignUp() {
                 </form>
 
                 <p className="text-center text-sm text-gray-500">
-                    ?{" "}
+                    Already have an account?{" "}
                     <Link href="/auth/login" className="font-semibold text-teal">
-                        Already have an account? Sign in
+                        Sign in
                     </Link>
                 </p>
             </div>

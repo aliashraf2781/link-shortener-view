@@ -24,6 +24,7 @@ import {
   FiLogOut,
 } from "react-icons/fi";
 import { ServerStatus } from "./ServerStatus";
+import Link from "next/link";
 
 const frontendFeatures = [
   {
@@ -72,7 +73,7 @@ const backendFeatures = [
   {
     icon: FiGlobe,
     title: "Smart Redirection",
-    description: "Every click captured with rich metadata and geolocation",
+    description: "Every click captured with rich metadata and geolocation. URLs structured as /go/{shortcode} for better organization",
   },
   {
     icon: FiRotateCw,
@@ -94,38 +95,92 @@ const backendFeatures = [
 const apiEndpoints = [
   {
     method: "POST",
-    path: "/api/register",
-    description: "Register a new user",
+    path: "/register",
+    description: "Register a new user account",
     auth: false,
   },
   {
     method: "POST",
-    path: "/api/login",
-    description: "Login and receive token",
+    path: "/login",
+    description: "Authenticate user and receive access token",
     auth: false,
   },
   {
     method: "POST",
-    path: "/api/logout",
-    description: "Revoke current token",
-    auth: true,
-  },
-  {
-    method: "GET",
-    path: "/api/links",
-    description: "List all user's links with visits",
+    path: "/logout",
+    description: "Revoke current authentication token",
     auth: true,
   },
   {
     method: "POST",
-    path: "/api/generate",
-    description: "Generate a new short link",
+    path: "/forgot-password",
+    description: "Request password reset with email verification",
+    auth: false,
+  },
+  {
+    method: "POST",
+    path: "/forgot-password/verify",
+    description: "Verify reset code and get verification token",
+    auth: false,
+  },
+  {
+    method: "POST",
+    path: "/reset-password",
+    description: "Complete password reset with new password",
+    auth: false,
+  },
+  {
+    method: "GET",
+    path: "/links",
+    description: "List all user's shortened links with click statistics",
+    auth: true,
+  },
+  {
+    method: "POST",
+    path: "/generate",
+    description: "Generate a new short link with optional custom alias",
+    auth: true,
+  },
+  {
+    method: "DELETE",
+    path: "/links/:id",
+    description: "Delete a specific shortened link",
+    auth: true,
+  },
+  {
+    method: "PUT",
+    path: "/links/:id/toggle",
+    description: "Toggle link active/inactive status",
     auth: true,
   },
   {
     method: "GET",
-    path: "/api/overview",
-    description: "Global analytics summary",
+    path: "/redirect",
+    description: "Redirect to original URL and record click analytics. Accessed via /go/{shortcode} or /{shortcode}",
+    auth: false,
+  },
+  {
+    method: "GET",
+    path: "/overview",
+    description: "Get global analytics summary and dashboard metrics",
+    auth: true,
+  },
+  {
+    method: "GET",
+    path: "/clicks-over-time",
+    description: "Get click trends over specified period (week/month/year)",
+    auth: true,
+  },
+  {
+    method: "GET",
+    path: "/link-analytics/:id",
+    description: "Get detailed analytics for a specific link",
+    auth: true,
+  },
+  {
+    method: "GET",
+    path: "/recent-clicks",
+    description: "Get latest click events with metadata",
     auth: true,
   },
 ];
@@ -189,30 +244,30 @@ export function Documentation() {
               <ServerStatus />
             </div>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
+              <Link
                 href="/auth/login"
                 className="inline-flex items-center gap-2 rounded-lg bg-teal px-8 py-3 font-semibold text-white hover:bg-teal-dark transition-colors"
               >
                 Sign In
                 <FiArrowRight className="h-5 w-5" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/auth/register"
                 className="inline-flex items-center gap-2 rounded-lg border border-teal px-8 py-3 font-semibold text-teal hover:bg-teal/5 transition-colors"
               >
                 Create Account
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#api-endpoints"
                 className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-900 hover:bg-gray-50 transition-colors"
               >
                 <FiBookOpen className="h-5 w-5" />
                 API Reference
-              </a>
+              </Link>
             </div>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <span className="text-sm font-medium text-gray-500">View Source:</span>
-              <a
+              <Link
                 href="https://github.com/aliashraf2781/link-shortener-view"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -221,8 +276,8 @@ export function Documentation() {
                 <FiCode className="h-4 w-4" />
                 Frontend
                 <FiExternalLink className="h-3 w-3" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://github.com/Abdelrahman-Abdullah/SaaS-Link-Management-API"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -231,8 +286,8 @@ export function Documentation() {
                 <FiServer className="h-4 w-4" />
                 Backend
                 <FiExternalLink className="h-3 w-3" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://github.com/MohamedEmad223/Dashboard-For-Url-Shortner-"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -241,7 +296,7 @@ export function Documentation() {
                 <FiGlobe className="h-4 w-4" />
                 Flutter
                 <FiExternalLink className="h-3 w-3" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -391,7 +446,7 @@ export function Documentation() {
               <FiWifi className="h-8 w-8 text-teal" />
               <h2 className="text-3xl font-bold text-gray-900">API Endpoints</h2>
             </div>
-            <p className="mt-2 text-lg text-gray-600">All endpoints are prefixed with <code>/api</code>. Protected routes 🔒 require <code>Authorization: Bearer token</code></p>
+            <p className="mt-2 text-lg text-gray-600">All endpoints are prefixed with <code className="bg-gray-100 px-2 py-1 rounded text-teal-dark">/api</code>. Protected routes require <FiLock className="inline h-5 w-5 text-red-600 mx-1" /> and bearer token.</p>
           </div>
           <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full">
@@ -409,11 +464,21 @@ export function Documentation() {
                     <td className="px-6 py-4">
                       <MethodBadge method={endpoint.method} />
                     </td>
-                    <td className="px-6 py-4 text-sm font-mono text-teal">{endpoint.path}</td>
+                    <td className="px-6 py-4 text-sm font-mono text-teal-dark">{endpoint.path}</td>
                     <td className="px-6 py-4 text-sm text-gray-600">{endpoint.description}</td>
                     <td className="px-6 py-4">
-                      <span className={endpoint.auth ? "text-red-600 font-semibold" : "text-green-600 font-semibold"}>
-                        {endpoint.auth ? "🔒" : "✓"}
+                      <span className="inline-flex items-center gap-1">
+                        {endpoint.auth ? (
+                          <>
+                            <FiLock className="h-4 w-4 text-red-600" />
+                            <span className="text-xs font-semibold text-red-600">Required</span>
+                          </>
+                        ) : (
+                          <>
+                            <FiCheckCircle className="h-4 w-4 text-green-600" />
+                            <span className="text-xs font-semibold text-green-600">Public</span>
+                          </>
+                        )}
                       </span>
                     </td>
                   </tr>

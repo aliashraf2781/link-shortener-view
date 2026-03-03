@@ -54,14 +54,14 @@ export default function DashboardPage() {
 
 	const handleCopyLink = (shortCode: string, customAlias?: string | null) => {
 		const linkToCopy = customAlias || shortCode;
-		const fullUrl = `${window.location.origin}/${linkToCopy}`;
+		const fullUrl = `${window.location.origin}/go/${linkToCopy}`;
 		navigator.clipboard.writeText(fullUrl);
 		showToast({ state: "success", title: "Link copied to clipboard" });
 	};
 
 	const handleShowQR = (link: Link) => {
 		const shortLink = link.custom_alias || link.short_code;
-		const fullUrl = `${window.location.origin}/${shortLink}`;
+		const fullUrl = `${window.location.origin}/go/${shortLink}`;
 		setQrModalData({
 			url: fullUrl,
 			title: link.title || undefined,
@@ -97,14 +97,22 @@ export default function DashboardPage() {
 		},
 		{
 			key: "short_code",
-			header: "Short Link",
+			header: "Generated Link",
 			render: (link) => {
 				const shortLink = link.custom_alias || link.short_code;
+				const fullUrl = `${window.location.origin}/go/${shortLink}`;
 				return (
 					<div className="flex items-center gap-2">
-						<code className="rounded bg-gray-100 px-2 py-1 text-xs font-mono text-teal-dark">
-							/{shortLink}
-						</code>
+						<a
+							href={fullUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="rounded bg-gray-100 px-2 py-1 text-xs font-mono text-teal-dark hover:bg-gray-200 transition max-w-xs truncate flex items-center gap-1"
+							title={fullUrl}
+						>
+							<span className="truncate">{fullUrl}</span>
+							<FiExternalLink className="h-3 w-3 shrink-0" />
+						</a>
 						<button
 							onClick={() => handleCopyLink(link.short_code, link.custom_alias)}
 							className="text-gray-400 hover:text-teal transition"

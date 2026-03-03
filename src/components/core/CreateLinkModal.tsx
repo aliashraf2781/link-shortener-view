@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Modal, Button } from "@/components/ui";
 import { createLinkSchema, type CreateLinkInput } from "@/schemas/link.schema";
 import { useCreateLinkMutation } from "@/hooks";
-import { showToast, getBackendMessage } from "@/lib";
+import { showToast } from "@/lib";
 
 type CreateLinkModalProps = {
 	isOpen: boolean;
@@ -28,8 +28,8 @@ export function CreateLinkModal({ isOpen, onClose }: CreateLinkModalProps) {
 			reset();
 			onClose();
 		},
-		onError: (error) => {
-			showToast({ state: "error", title: getBackendMessage(error) });
+		onError: () => {
+			showToast({ state: "error", title: "Failed to create link with that alias" });
 		},
 	});
 
@@ -53,7 +53,7 @@ export function CreateLinkModal({ isOpen, onClose }: CreateLinkModalProps) {
 						{...register("original_url")}
 						type="url"
 						placeholder="https://example.com"
-						className="w-full rounded-xl border border-gray-200 bg-linear-to-br from-blue-50/50 to-cyan-50/30 px-4 py-3 text-sm focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30 transition-all duration-200"
+						className="w-full rounded-xl border border-gray-200 bg-linear-to-br from-blue-50/50 to-cyan-50/30 px-4 py-3 text-sm text-gray-900 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30 transition-all duration-200"
 					/>
 					{errors.original_url?.message && (
 						<p className="text-xs text-red-500 font-medium">{errors.original_url.message}</p>
@@ -66,7 +66,7 @@ export function CreateLinkModal({ isOpen, onClose }: CreateLinkModalProps) {
 						{...register("custom_alias")}
 						type="text"
 						placeholder="my-custom-link (optional)"
-						className="w-full rounded-xl border border-gray-200 bg-linear-to-br from-green-50/50 to-emerald-50/30 px-4 py-3 text-sm focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30 transition-all duration-200"
+						className="w-full rounded-xl border border-gray-200 bg-linear-to-br from-green-50/50 to-emerald-50/30 px-4 py-3 text-sm text-gray-900 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30 transition-all duration-200"
 					/>
 					<p className="text-xs text-gray-500">
 						Letters, numbers, hyphens, and underscores only
@@ -82,7 +82,7 @@ export function CreateLinkModal({ isOpen, onClose }: CreateLinkModalProps) {
 						{...register("title")}
 						type="text"
 						placeholder="My Link (optional)"
-						className="w-full rounded-xl border border-gray-200 bg-linear-to-br from-purple-50/50 to-pink-50/30 px-4 py-3 text-sm focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30 transition-all duration-200"
+						className="w-full rounded-xl border border-gray-200 bg-linear-to-br from-purple-50/50 to-pink-50/30 px-4 py-3 text-sm text-gray-900 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/30 transition-all duration-200"
 					/>
 					{errors.title?.message && (
 						<p className="text-xs text-red-500 font-medium">{errors.title.message}</p>
