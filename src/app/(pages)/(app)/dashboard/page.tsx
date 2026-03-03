@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CreateLinkModal, QRCodeModal } from "@/components/core";
-import { Table, Button } from "@/components/ui";
+import { Table, Button, Modal } from "@/components/ui";
 import type { Column } from "@/components/ui/Table";
 import {
 	useLinksQuery,
@@ -23,6 +23,7 @@ import {
 	FiBarChart2,
 	FiCheckCircle,
 	FiCircle,
+	FiAlertCircle,
 } from "react-icons/fi";
 
 export default function DashboardPage() {
@@ -31,6 +32,7 @@ export default function DashboardPage() {
 		url: string;
 		title?: string;
 	} | null>(null);
+	const [toggleConfirmLinkId, setToggleConfirmLinkId] = useState<number | null>(null);
 
 	const { data: links = [], isLoading, isError, error } = useLinksQuery();
 
@@ -74,6 +76,17 @@ export default function DashboardPage() {
 		}
 	};
 
+	const handleToggleClick = (id: number) => {
+		setToggleConfirmLinkId(id);
+	};
+
+	const handleConfirmToggle = () => {
+		if (toggleConfirmLinkId !== null) {
+			toggleLink(toggleConfirmLinkId);
+			setToggleConfirmLinkId(null);
+		}
+	};
+
 	const columns: Column<Link>[] = [
 		{
 			key: "title",
@@ -110,7 +123,7 @@ export default function DashboardPage() {
 							className="rounded bg-gray-100 px-2 py-1 text-xs font-mono text-teal-dark hover:bg-gray-200 transition max-w-xs truncate flex items-center gap-1"
 							title={fullUrl}
 						>
-							<span className="truncate">{shortLink}</span>
+							<span className="truncate">/{shortLink}</span>
 							<FiExternalLink className="h-3 w-3 shrink-0" />
 						</a>
 						<button
@@ -173,7 +186,7 @@ export default function DashboardPage() {
 						<FiGrid className="h-4 w-4" />
 					</button>
 					<button
-						onClick={() => toggleLink(link.id)}
+						onClick={() => handleToggleClick(link.id)}
 						className="rounded-lg p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition"
 						title="Toggle status"
 					>
@@ -308,6 +321,46 @@ export default function DashboardPage() {
 					title={qrModalData.title}
 				/>
 			)}
+
+			<Modal
+				isOpen={toggleConfirmLinkId !== null}
+				onClose={() => setToggleConfirmLinkId(null)}
+				title="Toggle Link Status"
+				size="sm"
+				footer={
+					<div className="flex gap-3 justify-end">
+						<Button
+							onClick={() => setToggleConfirmLinkId(null)}
+							className="bg-gray-200 hover:bg-gray-300 text-gray-900"
+						>
+							Cancel
+						</Button>
+						<Button
+							onClick={handleConfirmToggle}
+							className="bg-teal hover:bg-teal-dark text-white"
+						>
+							Proceed
+						</Button>
+					</div>
+				}
+			>
+				<div className="space-y-4">
+					<div className="flex gap-3">
+						<FiAlertCircle className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
+						<div>
+							<p className="text-gray-900 font-semibold">
+								Toggle Limit Restriction
+							</p>
+							<p className="text-sm text-gray-600 mt-1">
+								You have one toggle available every 2 days. This action will count towards that limit.
+							</p>
+						</div>
+					</div>
+					<p className="text-sm text-gray-700 bg-gray-50 rounded-lg p-3">
+						Are you sure you want to proceed with toggling this link's status?
+					</p>
+				</div>
+			</Modal>
 		</>
 	);
 }
