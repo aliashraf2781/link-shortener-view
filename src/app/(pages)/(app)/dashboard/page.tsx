@@ -346,7 +346,7 @@ export default function DashboardPage() {
 			>
 				<div className="space-y-4">
 					<div className="flex gap-3">
-						<FiAlertCircle className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
+						<FiAlertCircle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
 						<div>
 							<p className="text-gray-900 font-semibold">
 								Toggle Limit Restriction
@@ -357,7 +357,7 @@ export default function DashboardPage() {
 						</div>
 					</div>
 					<p className="text-sm text-gray-700 bg-gray-50 rounded-lg p-3">
-						Are you sure you want to proceed with toggling this link's status?
+						{"Are you sure you want to proceed with toggling this link's status?"}
 					</p>
 				</div>
 			</Modal>
