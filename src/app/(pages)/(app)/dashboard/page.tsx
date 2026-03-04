@@ -192,7 +192,7 @@ export default function DashboardPage() {
 					</button>
 					<button
 						onClick={() => handleToggleClick(link)}
-						className="rounded-lg p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition"
+						className="rounded-lg p-2 text-gray-600 hover:bg-teal-50 hover:text-teal-600 transition"
 						title="Toggle status"
 					>
 						<FiToggleRight className="h-4 w-4" />
@@ -216,22 +216,22 @@ export default function DashboardPage() {
 		<>
 			<div className="space-y-8">
 				{/* Header */}
-				<div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-indigo-600 via-violet-600 to-purple-700 p-8 md:p-10 shadow-2xl">
+				<div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-teal-600 via-teal-700 to-cyan-800 p-8 md:p-10 shadow-2xl">
 					<div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyem0wLTMwVjBoLTEydjRoMTJ6TTI0IDI0aDEydi0xMkgyNHYxMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
 					<div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-					<div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-indigo-300/20 blur-3xl" />
+					<div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-teal-300/20 blur-3xl" />
 					<div className="relative flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
 						<div>
 							<div className="flex items-center gap-3 mb-2">
 								<div className="h-10 w-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
 									<FiLink className="h-5 w-5 text-white" />
 								</div>
-								<span className="text-indigo-200 text-sm font-semibold uppercase tracking-wider">Dashboard</span>
+								<span className="text-teal-200 text-sm font-semibold uppercase tracking-wider">Dashboard</span>
 							</div>
 							<h2 className="text-4xl md:text-5xl font-black text-white">
 								Your Links
 							</h2>
-							<p className="mt-2 text-indigo-200 font-medium text-lg">
+							<p className="mt-2 text-teal-200 font-medium text-lg">
 								Manage and track your shortened links
 							</p>
 						</div>
@@ -239,7 +239,8 @@ export default function DashboardPage() {
 							onClick={() => setIsCreateModalOpen(true)}
 							icon={FiPlus}
 							iconPosition="left"
-							className="shadow-lg hover:shadow-xl transition-all bg-white text-indigo-700 hover:bg-indigo-50 font-bold"
+							variant="secondary"
+							className="shadow-lg hover:shadow-xl transition-all bg-white text-teal-700 hover:bg-teal-50 font-bold"
 						>
 							Create Link
 						</Button>
@@ -253,19 +254,19 @@ export default function DashboardPage() {
 							label: "Total Links",
 							value: links.length,
 							Icon: FiLink,
-							gradient: "from-indigo-500 to-indigo-600",
-							bgLight: "bg-indigo-50",
-							iconColor: "text-indigo-600",
-							ring: "ring-indigo-100",
+							gradient: "from-teal-500 to-teal-600",
+							bgLight: "bg-teal-50",
+							iconColor: "text-teal-600",
+							ring: "ring-teal-100",
 						},
 						{
 							label: "Total Clicks",
 							value: links.reduce((sum, link) => sum + link.clicks_count, 0),
 							Icon: FiMousePointer,
-							gradient: "from-violet-500 to-purple-600",
-							bgLight: "bg-violet-50",
-							iconColor: "text-violet-600",
-							ring: "ring-violet-100",
+							gradient: "from-cyan-500 to-cyan-600",
+							bgLight: "bg-cyan-50",
+							iconColor: "text-cyan-600",
+							ring: "ring-cyan-100",
 						},
 						{
 							label: "Avg. Clicks/Link",
@@ -276,10 +277,10 @@ export default function DashboardPage() {
 								  )
 								: 0,
 							Icon: FiBarChart2,
-							gradient: "from-amber-500 to-orange-500",
-							bgLight: "bg-amber-50",
-							iconColor: "text-amber-600",
-							ring: "ring-amber-100",
+							gradient: "from-emerald-500 to-emerald-600",
+							bgLight: "bg-emerald-50",
+							iconColor: "text-emerald-600",
+							ring: "ring-emerald-100",
 						},
 					].map((stat, idx) => (
 						<div
@@ -309,7 +310,7 @@ export default function DashboardPage() {
 					<div className="flex items-center justify-center py-16">
 						<div className="text-center space-y-4">
 							<div className="relative inline-flex">
-								<div className="h-14 w-14 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
+								<div className="h-14 w-14 animate-spin rounded-full border-4 border-teal-200 border-t-teal-600" />
 							</div>
 							<p className="text-gray-500 font-medium">Loading your links...</p>
 						</div>
@@ -362,7 +363,7 @@ export default function DashboardPage() {
 						</Button>
 						<Button
 							onClick={handleConfirmToggle}
-							className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/25"
+							className="bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-500/25"
 						>
 							Proceed
 						</Button>
@@ -371,8 +372,8 @@ export default function DashboardPage() {
 			>
 				<div className="space-y-4">
 					<div className="flex gap-3">
-						<div className="h-10 w-10 rounded-xl bg-amber-50 flex items-center justify-center shrink-0">
-							<FiAlertCircle className="h-5 w-5 text-amber-600" />
+						<div className="h-10 w-10 rounded-xl bg-teal-50 flex items-center justify-center shrink-0">
+							<FiAlertCircle className="h-5 w-5 text-teal-600" />
 						</div>
 						<div>
 							<p className="text-gray-900 font-bold">
@@ -383,7 +384,7 @@ export default function DashboardPage() {
 							</p>
 						</div>
 					</div>
-					<p className="text-sm text-gray-700 bg-amber-50/50 rounded-xl p-4 ring-1 ring-amber-100">
+					<p className="text-sm text-gray-700 bg-teal-50/50 rounded-xl p-4 ring-1 ring-teal-100">
 						{"Are you sure you want to proceed with toggling this link's status?"}
 					</p>
 				</div>
