@@ -13,8 +13,9 @@ export default function AppProviders({ children }: { children: React.ReactNode }
         defaultOptions: {
           queries: {
             staleTime: 1000 * 30,
-            refetchOnWindowFocus: false,
-            retry: 1,
+            refetchOnWindowFocus: true,
+            retry: true,
+            // refetchInterval: 5000
           },
           mutations: {
             retry: 0,
