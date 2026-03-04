@@ -136,7 +136,7 @@ const Modal: React.FC<ModalProps> = ({
           </h2>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-gray-400 hover:text-teal-600 hover:bg-teal/10 transition-all"
+            className="p-1.5 rounded-lg text-gray-400 hover:text-teal-600 hover:bg-teal-50 transition-all"
           >
             <FiX size={20} />
           </button>
@@ -147,7 +147,7 @@ const Modal: React.FC<ModalProps> = ({
 
         {/* Footer */}
         {footer && (
-          <div className="px-6 py-4 border-t border-teal-800/20 flex items-center justify-end gap-2 bg-linear-to-b from-white/0 to-teal/5">
+          <div className="px-6 py-4 border-t border-teal-800/20 flex items-center justify-end gap-2 bg-linear-to-b from-white/0 to-teal-50/40">
             {footer}
           </div>
         )}

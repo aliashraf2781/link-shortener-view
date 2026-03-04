@@ -47,13 +47,13 @@ export default function LogIn() {
   };
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-linear-to-b from-teal-light/30 via-white to-white p-4">
-      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-teal-light/30 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-teal/20 blur-3xl" />
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-linear-to-b from-teal-100/40 via-white to-white p-4">
+      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-teal-300/30 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-cyan-300/20 blur-3xl" />
 
-      <div className="relative w-full max-w-md space-y-7 rounded-3xl border border-teal-800/20 bg-white/90 p-8 shadow-[0_20px_60px_-30px_rgba(13,122,138,0.6)] backdrop-blur">
+      <div className="relative w-full max-w-md space-y-7 rounded-3xl border border-teal-200/40 bg-white/90 p-8 shadow-2xl shadow-teal-600/15 backdrop-blur">
         <div className="space-y-3 text-center">
-          <span className="inline-flex items-center rounded-full bg-teal/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal">
+          <span className="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal-600">
             Welcome back
           </span>
           <h1 className="text-3xl font-semibold text-gray-900">
@@ -92,7 +92,7 @@ export default function LogIn() {
             <span className="text-gray-400">Keep it safe.</span>
             <Link
               href="/auth/forget-password"
-              className="font-medium text-teal hover:text-teal-dark"
+              className="font-medium text-teal-600 hover:text-teal-700"
             >
               Forgot password?
             </Link>
@@ -105,7 +105,7 @@ export default function LogIn() {
 
         <p className="text-center text-sm text-gray-500">
           New here?{" "}
-          <Link href="/auth/register" className="font-semibold text-teal">
+          <Link href="/auth/register" className="font-semibold text-teal-600 hover:text-teal-700">
             Create an account
           </Link>
         </p>

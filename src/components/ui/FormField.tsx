@@ -43,11 +43,11 @@ type FormFieldProps = InputFieldProps | SelectFieldProps;
 
 const variantBase: Record<FieldVariant, string> = {
   default:
-    "border border-teal-800/20 rounded-lg bg-linear-to-br from-white to-teal/5 focus-within:border-teal focus-within:ring-2 ring-teal/20 transition-all",
+    "border border-teal-800/20 rounded-lg bg-linear-to-br from-white to-teal-50/40 focus-within:border-teal-500 focus-within:ring-2 ring-teal-500/20 transition-all",
   filled:
-    "border border-transparent rounded-lg bg-linear-to-br from-teal/10 to-cyan/10 focus-within:bg-linear-to-br focus-within:from-teal/15 focus-within:to-cyan/15 focus-within:border-teal focus-within:ring-2 ring-teal/20",
+    "border border-transparent rounded-lg bg-linear-to-br from-teal-50/60 to-cyan-50/60 focus-within:bg-linear-to-br focus-within:from-teal-50 focus-within:to-cyan-50 focus-within:border-teal-500 focus-within:ring-2 ring-teal-500/20",
   underline:
-    "border-b-2 border-teal-800/20 rounded-none bg-transparent focus-within:border-teal focus-within:shadow-sm",
+    "border-b-2 border-teal-800/20 rounded-none bg-transparent focus-within:border-teal-500 focus-within:shadow-sm",
 };
 
 const FormField = React.forwardRef<
@@ -93,7 +93,7 @@ const FormField = React.forwardRef<
       <div className={wrapperCn}>
       {label && (
         <label className="flex items-center gap-1.5 text-sm font-semibold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-          {LabelIcon && <LabelIcon className="text-teal" />}
+          {LabelIcon && <LabelIcon className="text-teal-600" />}
           {label}
         </label>
       )}
@@ -137,7 +137,7 @@ const FormField = React.forwardRef<
     <div className={wrapperCn}>
       {label && (
         <label className="flex items-center gap-1.5 text-sm font-semibold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-          {LabelIcon && <LabelIcon className="text-teal" />}
+          {LabelIcon && <LabelIcon className="text-teal-600" />}
           {label}
         </label>
       )}
@@ -156,7 +156,7 @@ const FormField = React.forwardRef<
             type="button"
             tabIndex={-1}
             onClick={() => setShowPassword((p) => !p)}
-            className="text-gray-400 hover:text-teal transition-colors shrink-0"
+            className="text-gray-400 hover:text-teal-600 transition-colors shrink-0"
           >
             {showPassword ? <FiEyeOff /> : <FiEye />}
           </button>

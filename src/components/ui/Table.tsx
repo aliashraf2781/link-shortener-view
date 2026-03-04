@@ -148,7 +148,7 @@ function Table<T>({
               placeholder="Search by title or generated link..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full rounded-lg border border-gray-200 pl-10 pr-10 py-2.5 text-sm outline-none transition focus:border-teal focus:ring-1 focus:ring-teal/20"
+              className="w-full rounded-lg border border-gray-200 pl-10 pr-10 py-2.5 text-sm outline-none transition focus:border-teal-500 focus:ring-1 focus:ring-teal-500/20"
             />
             {searchTerm && (
               <button
@@ -172,7 +172,7 @@ function Table<T>({
                   onClick={() => setStatusFilter(status)}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${
                     statusFilter === status
-                      ? "bg-teal text-white"
+                      ? "bg-teal-600 text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
@@ -189,7 +189,7 @@ function Table<T>({
         <table className={cn("w-full text-sm text-left", className)}>
           <thead
             className={cn(
-              "bg-linear-to-r from-teal/10 via-teal/5 to-cyan-50/10 uppercase text-xs tracking-wider border-b border-teal-500/10",
+              "bg-linear-to-r from-teal-600/10 via-teal-500/5 to-cyan-50/10 uppercase text-xs tracking-wider border-b border-teal-500/10",
               headerClassName
             )}
           >
@@ -200,7 +200,7 @@ function Table<T>({
                   onClick={() => handleSort(col.key)}
                   className={cn(
                     "px-6 py-4 font-semibold text-gray-700",
-                    enableSort && "cursor-pointer hover:bg-teal/10 transition",
+                    enableSort && "cursor-pointer hover:bg-teal-50 transition",
                     col.headerClassName
                   )}
                   title={enableSort ? "Click to sort" : undefined}
@@ -210,9 +210,9 @@ function Table<T>({
                     {enableSort && sortColumn === col.key && (
                       <span className="shrink-0">
                         {sortDirection === "asc" ? (
-                          <FiChevronUp className="h-4 w-4 text-teal" />
+                          <FiChevronUp className="h-4 w-4 text-teal-600" />
                         ) : (
-                          <FiChevronDown className="h-4 w-4 text-teal" />
+                          <FiChevronDown className="h-4 w-4 text-teal-600" />
                         )}
                       </span>
                     )}
@@ -243,8 +243,8 @@ function Table<T>({
                     key={keyExtractor(row, idx)}
                     className={cn(
                       "transition-all duration-200",
-                      striped && idx % 2 !== 0 && "bg-teal/2",
-                      hoverable && "hover:bg-teal/5 hover:shadow-sm",
+                      striped && idx % 2 !== 0 && "bg-teal-50/30",
+                      hoverable && "hover:bg-teal-50/50 hover:shadow-sm",
                       rCn
                     )}
                   >

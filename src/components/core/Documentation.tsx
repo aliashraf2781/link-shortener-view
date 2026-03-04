@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import {
   FiZap,
   FiLock,
@@ -35,7 +35,7 @@ const frontendFeatures = [
   {
     icon: FiLock,
     title: "Password Recovery",
-    description: "3-step forgot password flow: request → verify with OTP → reset",
+    description: "3-step forgot password flow: request â†’ verify with OTP â†’ reset",
   },
   {
     icon: FiCheckCircle,
@@ -195,9 +195,9 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="group rounded-lg border border-gray-200 p-5 transition-all hover:border-teal hover:shadow-lg hover:shadow-teal/10">
-      <div className="inline-flex rounded-lg bg-teal/10 p-3 group-hover:bg-teal/20 transition-colors">
-        <Icon className="h-5 w-5 text-teal" />
+    <div className="group rounded-lg border border-gray-200 p-5 transition-all hover:border-teal-500 hover:shadow-lg hover:shadow-teal-500/10">
+      <div className="inline-flex rounded-lg bg-teal-50 p-3 group-hover:bg-teal-100 transition-colors">
+        <Icon className="h-5 w-5 text-teal-600" />
       </div>
       <h3 className="mt-3 font-semibold text-gray-900">{title}</h3>
       <p className="mt-1 text-sm text-gray-600">{description}</p>
@@ -225,12 +225,12 @@ export function Documentation() {
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute -top-40 -right-40 h-80 w-80 rounded-full bg-teal/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-teal/5 blur-3xl" />
+        <div className="pointer-events-none absolute -top-40 -right-40 h-80 w-80 rounded-full bg-teal-400/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-teal-300/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-teal/10 px-4 py-2 text-sm font-semibold text-teal mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-600 mb-6">
               <FiZap className="h-4 w-4" />
               Full-Stack Documentation
             </div>
@@ -246,14 +246,14 @@ export function Documentation() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/auth/login"
-                className="inline-flex items-center gap-2 rounded-lg bg-teal px-8 py-3 font-semibold text-white hover:bg-teal-dark transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-teal-600 to-teal-500 px-8 py-3 font-semibold text-white hover:from-teal-700 hover:to-teal-600 transition-colors shadow-md shadow-teal-600/20"
               >
                 Sign In
                 <FiArrowRight className="h-5 w-5" />
               </Link>
               <Link
                 href="/auth/register"
-                className="inline-flex items-center gap-2 rounded-lg border border-teal px-8 py-3 font-semibold text-teal hover:bg-teal/5 transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg border border-teal-500 px-8 py-3 font-semibold text-teal-600 hover:bg-teal-50 transition-colors"
               >
                 Create Account
               </Link>
@@ -306,41 +306,41 @@ export function Documentation() {
       <div className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="flex items-center gap-3 mb-8">
-            <FiTool className="h-8 w-8 text-teal" />
+            <FiTool className="h-8 w-8 text-teal-600" />
             <h2 className="text-3xl font-bold text-gray-900">Tech Stack</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg border border-gray-200 p-6">
-              <FiCode className="h-8 w-8 text-teal mb-3" />
+              <FiCode className="h-8 w-8 text-teal-600 mb-3" />
               <h3 className="font-semibold text-gray-900">Frontend</h3>
               <ul className="mt-3 space-y-2 text-sm text-gray-600">
-                <li>• Next.js 16 App Router</li>
-                <li>• React 19 with Compiler</li>
-                <li>• Tailwind CSS v4</li>
-                <li>• NextAuth.js</li>
-                <li>• React Query (TanStack)</li>
+                <li>â€¢ Next.js 16 App Router</li>
+                <li>â€¢ React 19 with Compiler</li>
+                <li>â€¢ Tailwind CSS v4</li>
+                <li>â€¢ NextAuth.js</li>
+                <li>â€¢ React Query (TanStack)</li>
               </ul>
             </div>
             <div className="rounded-lg border border-gray-200 p-6">
-              <FiServer className="h-8 w-8 text-teal mb-3" />
+              <FiServer className="h-8 w-8 text-teal-600 mb-3" />
               <h3 className="font-semibold text-gray-900">Backend</h3>
               <ul className="mt-3 space-y-2 text-sm text-gray-600">
-                <li>• Laravel (PHP)</li>
-                <li>• Laravel Sanctum Auth</li>
-                <li>• MySQL Database</li>
-                <li>• RESTful JSON API</li>
-                <li>• GeoLocation & Device Detection</li>
+                <li>â€¢ Laravel (PHP)</li>
+                <li>â€¢ Laravel Sanctum Auth</li>
+                <li>â€¢ MySQL Database</li>
+                <li>â€¢ RESTful JSON API</li>
+                <li>â€¢ GeoLocation & Device Detection</li>
               </ul>
             </div>
             <div className="rounded-lg border border-gray-200 p-6">
-              <FiDatabase className="h-8 w-8 text-teal mb-3" />
+              <FiDatabase className="h-8 w-8 text-teal-600 mb-3" />
               <h3 className="font-semibold text-gray-900">Infrastructure</h3>
               <ul className="mt-3 space-y-2 text-sm text-gray-600">
-                <li>• MySQL Database</li>
-                <li>• Sanctum Token Auth</li>
-                <li>• Geo IP Database</li>
-                <li>• User Agent Detection</li>
-                <li>• Rate Limiting</li>
+                <li>â€¢ MySQL Database</li>
+                <li>â€¢ Sanctum Token Auth</li>
+                <li>â€¢ Geo IP Database</li>
+                <li>â€¢ User Agent Detection</li>
+                <li>â€¢ Rate Limiting</li>
               </ul>
             </div>
           </div>
@@ -352,48 +352,48 @@ export function Documentation() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <FiSquare className="h-8 w-8 text-teal" />
+              <FiSquare className="h-8 w-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">Dashboard UI</h2>
             </div>
             <p className="mt-2 text-lg text-gray-600">Beautiful dashboard with modern navigation and controls</p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-gray-200 p-6">
-              <FiLink className="h-8 w-8 text-teal mb-3" />
+              <FiLink className="h-8 w-8 text-teal-600 mb-3" />
               <h3 className="font-semibold text-gray-900">Logo & Branding</h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal rounded-full mt-1.5 shrink-0" />
+                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
                   <span>Custom SVG logo integrated in dashboard header</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal rounded-full mt-1.5 shrink-0" />
+                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
                   <span>Responsive design works on mobile and tablet</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal rounded-full mt-1.5 shrink-0" />
+                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
                   <span>Optimized with Next.js Image component</span>
                 </li>
               </ul>
             </div>
             <div className="rounded-lg border border-gray-200 p-6">
-              <FiLogOut className="h-8 w-8 text-teal mb-3" />
+              <FiLogOut className="h-8 w-8 text-teal-600 mb-3" />
               <h3 className="font-semibold text-gray-900">Logout Button</h3>
               <ul className="mt-4 space-y-3 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal rounded-full mt-1.5 shrink-0" />
+                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
                   <span>Beautiful red gradient styling with hover effects</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal rounded-full mt-1.5 shrink-0" />
+                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
                   <span>Icon scales smoothly on hover for interactivity</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal rounded-full mt-1.5 shrink-0" />
+                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
                   <span>Located in sidebar footer with shadow effects</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal rounded-full mt-1.5 shrink-0" />
+                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
                   <span>Safely revokes session and redirects to login</span>
                 </li>
               </ul>
@@ -407,7 +407,7 @@ export function Documentation() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <FiSquare className="h-8 w-8 text-teal" />
+              <FiSquare className="h-8 w-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">Frontend Features</h2>
             </div>
             <p className="mt-2 text-lg text-gray-600">Beautiful, responsive Next.js application with modern UX</p>
@@ -425,7 +425,7 @@ export function Documentation() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <FiSettings className="h-8 w-8 text-teal" />
+              <FiSettings className="h-8 w-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">Backend Features</h2>
             </div>
             <p className="mt-2 text-lg text-gray-600">Robust Laravel API with comprehensive analytics and security</p>
@@ -443,10 +443,10 @@ export function Documentation() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <FiWifi className="h-8 w-8 text-teal" />
+              <FiWifi className="h-8 w-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">API Endpoints</h2>
             </div>
-            <p className="mt-2 text-lg text-gray-600">All endpoints are prefixed with <code className="bg-gray-100 px-2 py-1 rounded text-teal-dark">/api</code>. Protected routes require <FiLock className="inline h-5 w-5 text-red-600 mx-1" /> and bearer token.</p>
+            <p className="mt-2 text-lg text-gray-600">All endpoints are prefixed with <code className="bg-gray-100 px-2 py-1 rounded text-teal-700">/api</code>. Protected routes require <FiLock className="inline h-5 w-5 text-red-600 mx-1" /> and bearer token.</p>
           </div>
           <div className="overflow-x-auto rounded-lg border border-gray-200">
             <table className="w-full">
@@ -464,7 +464,7 @@ export function Documentation() {
                     <td className="px-6 py-4">
                       <MethodBadge method={endpoint.method} />
                     </td>
-                    <td className="px-6 py-4 text-sm font-mono text-teal-dark">{endpoint.path}</td>
+                    <td className="px-6 py-4 text-sm font-mono text-teal-700">{endpoint.path}</td>
                     <td className="px-6 py-4 text-sm text-gray-600">{endpoint.description}</td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1">
@@ -494,7 +494,7 @@ export function Documentation() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <FiAward className="h-8 w-8 text-teal" />
+              <FiAward className="h-8 w-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">Example: Generate Short Link</h2>
             </div>
           </div>
@@ -531,26 +531,26 @@ Content-Type: application/json
       {/* Security Section */}
       <div className="px-4 py-16 sm:px-6 lg:px-8 bg-white">
         <div className="mx-auto max-w-6xl">
-          <div className="rounded-lg border border-teal-800/20 bg-teal/5 p-8">
+          <div className="rounded-lg border border-teal-200/30 bg-teal-50 p-8">
             <div className="flex items-start gap-4">
-              <FiShield className="h-8 w-8 text-teal shrink-0 mt-1" />
+              <FiShield className="h-8 w-8 text-teal-600 shrink-0 mt-1" />
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">Security & Rate Limiting</h2>
                 <ul className="mt-4 space-y-3 text-gray-700">
                   <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 bg-teal rounded-full" />
+                    <span className="h-2 w-2 bg-teal-500 rounded-full" />
                     All operations are scoped to authenticated users
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 bg-teal rounded-full" />
+                    <span className="h-2 w-2 bg-teal-500 rounded-full" />
                     Link status toggle is rate limited to once every 2 days
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 bg-teal rounded-full" />
+                    <span className="h-2 w-2 bg-teal-500 rounded-full" />
                     Form Request validation prevents invalid or abusive values
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 bg-teal rounded-full" />
+                    <span className="h-2 w-2 bg-teal-500 rounded-full" />
                     Secure JWT tokens via Laravel Sanctum
                   </li>
                 </ul>

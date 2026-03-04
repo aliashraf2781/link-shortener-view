@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { CreateLinkModal, QRCodeModal } from "@/components/core";
@@ -105,7 +105,7 @@ export default function DashboardPage() {
 						href={link.original_link}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-xs text-gray-500 hover:text-teal truncate flex items-center gap-1 mt-0.5"
+						className="text-xs text-gray-500 hover:text-teal-600 truncate flex items-center gap-1 mt-0.5"
 					>
 						<span className="truncate">{link.original_link}</span>
 						<FiExternalLink className="h-3 w-3 shrink-0" />
@@ -125,7 +125,7 @@ export default function DashboardPage() {
 							href={fullUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="rounded bg-gray-100 px-2 py-1 text-xs font-mono text-teal-dark hover:bg-gray-200 transition max-w-xs truncate flex items-center gap-1"
+							className="rounded bg-gray-100 px-2 py-1 text-xs font-mono text-teal-700 hover:bg-gray-200 transition max-w-xs truncate flex items-center gap-1"
 							title={fullUrl}
 						>
 							<span className="truncate">/{shortLink}</span>
@@ -133,7 +133,7 @@ export default function DashboardPage() {
 						</a>
 						<button
 							onClick={() => handleCopyLink(link.short_code, link.custom_alias)}
-							className="text-gray-400 hover:text-teal transition"
+							className="text-gray-400 hover:text-teal-600 transition"
 							title="Copy link"
 						>
 							<FiCopy className="h-4 w-4" />
@@ -185,7 +185,7 @@ export default function DashboardPage() {
 				<div className="flex items-center w-full gap-2">
 					<button
 						onClick={() => handleShowQR(link)}
-						className="rounded-lg p-2 text-gray-600 hover:bg-teal/10 hover:text-teal transition"
+						className="rounded-lg p-2 text-gray-600 hover:bg-teal-50 hover:text-teal-600 transition"
 						title="Show QR Code"
 					>
 						<FiGrid className="h-4 w-4" />
@@ -216,86 +216,106 @@ export default function DashboardPage() {
 		<>
 			<div className="space-y-8">
 				{/* Header */}
-				<div className="flex items-end justify-between">
-					<div>
-						<h2 className="text-4xl font-bold bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-							Your Links
-						</h2>
-						<p className="mt-2 text-gray-500 font-medium">
-							Manage and track your shortened links
-						</p>
+				<div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-indigo-600 via-violet-600 to-purple-700 p-8 md:p-10 shadow-2xl">
+					<div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyem0wLTMwVjBoLTEydjRoMTJ6TTI0IDI0aDEydi0xMkgyNHYxMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
+					<div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+					<div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-indigo-300/20 blur-3xl" />
+					<div className="relative flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+						<div>
+							<div className="flex items-center gap-3 mb-2">
+								<div className="h-10 w-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+									<FiLink className="h-5 w-5 text-white" />
+								</div>
+								<span className="text-indigo-200 text-sm font-semibold uppercase tracking-wider">Dashboard</span>
+							</div>
+							<h2 className="text-4xl md:text-5xl font-black text-white">
+								Your Links
+							</h2>
+							<p className="mt-2 text-indigo-200 font-medium text-lg">
+								Manage and track your shortened links
+							</p>
+						</div>
+						<Button
+							onClick={() => setIsCreateModalOpen(true)}
+							icon={FiPlus}
+							iconPosition="left"
+							className="shadow-lg hover:shadow-xl transition-all bg-white text-indigo-700 hover:bg-indigo-50 font-bold"
+						>
+							Create Link
+						</Button>
 					</div>
-					<Button
-						onClick={() => setIsCreateModalOpen(true)}
-						icon={FiPlus}
-						iconPosition="left"
-						className="shadow-lg hover:shadow-xl transition-all"
-					>
-						Create Link
-					</Button>
 				</div>
 
 				{/* Stats Cards */}
-				<div className="grid gap-6 md:grid-cols-3">
+				<div className="grid gap-5 md:grid-cols-3">
 					{[
 						{
 							label: "Total Links",
 							value: links.length,
 							Icon: FiLink,
-							gradient: "from-blue-50 to-cyan-50",
-							borderColor: "from-blue-200 to-cyan-200",
+							gradient: "from-indigo-500 to-indigo-600",
+							bgLight: "bg-indigo-50",
+							iconColor: "text-indigo-600",
+							ring: "ring-indigo-100",
 						},
-					{
-						label: "Total Clicks",
-						value: links.reduce((sum, link) => sum + link.clicks_count, 0),
-						Icon: FiMousePointer,
-						gradient: "from-purple-50 to-pink-50",
-						borderColor: "from-purple-200 to-pink-200",
-					},
-					{
-						label: "Avg. Clicks/Link",
-						value: links.length > 0
-							? Math.round(
-									links.reduce((sum, link) => sum + link.clicks_count, 0) /
-										links.length
-							  )
-							: 0,
-						Icon: FiBarChart2,
-						gradient: "from-green-50 to-teal-50",
-						borderColor: "from-green-200 to-teal-200",
-					},
-				].map((stat, idx) => (
-					<div
-						key={idx}
-						className={`relative overflow-hidden rounded-2xl bg-linear-to-br ${stat.gradient} p-6 shadow-sm hover:shadow-lg transition-all duration-300 backdrop-blur-sm`}
-					>
-						<div className={`absolute -right-8 -top-8 h-24 w-24 bg-linear-to-br ${stat.borderColor} opacity-10 rounded-full blur-2xl`} />
-						<div className={`absolute -left-8 -bottom-8 h-32 w-32 bg-linear-to-br ${stat.borderColor} opacity-5 rounded-full blur-3xl`} />
-						
-						<div className="relative space-y-3">
-							<div className="flex items-center justify-between">
-								<p className="text-sm font-semibold text-gray-600 uppercase tracking-wider">
-									{stat.label}
-								</p>
-								<stat.Icon className="h-8 w-8 text-gray-400" />
+						{
+							label: "Total Clicks",
+							value: links.reduce((sum, link) => sum + link.clicks_count, 0),
+							Icon: FiMousePointer,
+							gradient: "from-violet-500 to-purple-600",
+							bgLight: "bg-violet-50",
+							iconColor: "text-violet-600",
+							ring: "ring-violet-100",
+						},
+						{
+							label: "Avg. Clicks/Link",
+							value: links.length > 0
+								? Math.round(
+										links.reduce((sum, link) => sum + link.clicks_count, 0) /
+											links.length
+								  )
+								: 0,
+							Icon: FiBarChart2,
+							gradient: "from-amber-500 to-orange-500",
+							bgLight: "bg-amber-50",
+							iconColor: "text-amber-600",
+							ring: "ring-amber-100",
+						},
+					].map((stat, idx) => (
+						<div
+							key={idx}
+							className={`group relative overflow-hidden rounded-2xl bg-white p-6 shadow-sm ring-1 ${stat.ring} hover:shadow-lg transition-all duration-300`}
+						>
+							<div className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${stat.gradient}`} />
+							<div className="relative space-y-4">
+								<div className="flex items-center justify-between">
+									<div className={`inline-flex items-center justify-center h-12 w-12 rounded-xl ${stat.bgLight} group-hover:scale-110 transition-transform`}>
+										<stat.Icon className={`h-6 w-6 ${stat.iconColor}`} />
+									</div>
+								</div>
+								<div>
+									<p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+										{stat.label}
+									</p>
+									<p className="text-3xl font-black text-gray-900 mt-1">{stat.value}</p>
+								</div>
 							</div>
-							<p className="text-4xl font-bold text-gray-900">{stat.value}</p>
-							<div className={`h-1 w-16 bg-linear-to-r ${stat.borderColor} rounded-full`} />
 						</div>
-					</div>
-				))}
-			</div>
+					))}
+				</div>
 
 				{/* Table */}
 				{isLoading ? (
-					<div className="flex items-center justify-center py-12">
-						<div className="text-center">
-							<div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-teal-800/20 border-t-teal mb-4" />
-							<p className="text-gray-600 font-medium">Loading your links...</p>
+					<div className="flex items-center justify-center py-16">
+						<div className="text-center space-y-4">
+							<div className="relative inline-flex">
+								<div className="h-14 w-14 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
+							</div>
+							<p className="text-gray-500 font-medium">Loading your links...</p>
 						</div>
 					</div>
 				) : isError ? (
-					<div className="rounded-2xl bg-linear-to-br from-red-50/80 to-orange-50/80 p-8 text-center backdrop-blur-sm border border-red-100/50">
+					<div className="rounded-2xl bg-linear-to-br from-red-50 to-rose-50 border border-red-200/60 p-8 text-center shadow-sm">
 						<p className="text-red-700 font-semibold">
 							{getBackendMessage(error, "Failed to load links")}
 						</p>
@@ -342,7 +362,7 @@ export default function DashboardPage() {
 						</Button>
 						<Button
 							onClick={handleConfirmToggle}
-							className="bg-teal hover:bg-teal-dark text-white"
+							className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/25"
 						>
 							Proceed
 						</Button>
@@ -351,9 +371,11 @@ export default function DashboardPage() {
 			>
 				<div className="space-y-4">
 					<div className="flex gap-3">
-						<FiAlertCircle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
+						<div className="h-10 w-10 rounded-xl bg-amber-50 flex items-center justify-center shrink-0">
+							<FiAlertCircle className="h-5 w-5 text-amber-600" />
+						</div>
 						<div>
-							<p className="text-gray-900 font-semibold">
+							<p className="text-gray-900 font-bold">
 								Toggle Limit Restriction
 							</p>
 							<p className="text-sm text-gray-600 mt-1">
@@ -361,7 +383,7 @@ export default function DashboardPage() {
 							</p>
 						</div>
 					</div>
-					<p className="text-sm text-gray-700 bg-gray-50 rounded-lg p-3">
+					<p className="text-sm text-gray-700 bg-amber-50/50 rounded-xl p-4 ring-1 ring-amber-100">
 						{"Are you sure you want to proceed with toggling this link's status?"}
 					</p>
 				</div>

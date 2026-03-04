@@ -55,7 +55,7 @@ export function QRCodeModal({ isOpen, onClose, url, title }: QRCodeModalProps) {
 					ref={qrRef}
 					className="relative rounded-3xl bg-linear-to-br from-white to-blue-50/40 p-6 shadow-lg hover:shadow-xl transition-all duration-300"
 				>
-					<div className="absolute inset-0 rounded-3xl bg-linear-to-br from-teal/5 to-cyan/5 pointer-events-none" />
+					<div className="absolute inset-0 rounded-3xl bg-linear-to-br from-teal-50/40 to-cyan-50/40 pointer-events-none" />
 					<div className="relative bg-white rounded-2xl p-4">
 						<QRCodeCanvas value={url} size={256} level="H" />
 					</div>
@@ -73,13 +73,13 @@ export function QRCodeModal({ isOpen, onClose, url, title }: QRCodeModalProps) {
 				<div className="flex w-full gap-3 pt-2">
 					<button
 						onClick={handleCopy}
-						className="flex-1 rounded-xl px-4 py-3 text-sm font-semibold bg-linear-to-r from-teal/10 to-cyan/10 text-teal hover:from-teal/20 hover:to-cyan/20 transition-all duration-200 hover:shadow-md"
+						className="flex-1 rounded-xl px-4 py-3 text-sm font-semibold bg-linear-to-r from-teal-50 to-cyan-50 text-teal-600 hover:from-teal-100 hover:to-cyan-100 transition-all duration-200 hover:shadow-md"
 					>
 						Copy Image
 					</button>
 					<button
 						onClick={handleDownload}
-						className="flex-1 rounded-xl px-4 py-3 text-sm font-semibold bg-linear-to-r from-teal to-teal-600 text-white hover:shadow-lg transition-all duration-200 hover:shadow-teal/30"
+						className="flex-1 rounded-xl px-4 py-3 text-sm font-semibold bg-linear-to-r from-teal-600 to-teal-500 text-white hover:shadow-lg transition-all duration-200 hover:shadow-teal-500/25"
 					>
 						Download
 					</button>

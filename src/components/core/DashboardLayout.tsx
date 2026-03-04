@@ -99,7 +99,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                                     className={cn(
                                         "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200",
                                         isActive
-                                            ? "bg-linear-to-r from-teal/15 to-teal/5 text-teal shadow-sm"
+                                            ? "bg-linear-to-r from-teal-600/15 to-teal-500/5 text-teal-600 shadow-sm"
                                             : "text-gray-600 hover:text-gray-900 hover:bg-white/40"
                                     )}
                                 >
@@ -110,7 +110,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                         })}
                         {/* Footer section with logout */}
                     </nav>
-                    <div className="mt-auto border-t border-teal-800/10 pt-4 pb-6 px-3 space-y-3">
+                    <div className="mt-auto border-t border-teal-200/30 pt-4 pb-6 px-3 space-y-3">
                         {/* User Info */}
                         {session?.user && (
                             <div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-teal-600/5 border border-teal-200/10">

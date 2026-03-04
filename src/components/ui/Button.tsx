@@ -16,13 +16,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-teal text-white hover:bg-teal-dark focus:ring-2 ring-teal-light",
+    "bg-linear-to-r from-teal-600 to-teal-500 text-white hover:from-teal-700 hover:to-teal-600 focus:ring-2 ring-teal-400/50 shadow-sm hover:shadow-md hover:shadow-teal-600/20",
   secondary:
-    "bg-teal-light text-white hover:bg-teal focus:ring-2 ring-teal",
+    "bg-teal-100 text-teal-700 hover:bg-teal-200 focus:ring-2 ring-teal-300/50",
   outline:
-    "bg-transparent border-2 border-teal text-teal hover:bg-teal focus:ring-2 ring-teal-light",
+    "bg-transparent border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white focus:ring-2 ring-teal-400/50",
   ghost:
-    "bg-transparent text-teal hover:bg-teal/10 focus:ring-2 ring-teal-light",
+    "bg-transparent text-teal-600 hover:bg-teal-50 focus:ring-2 ring-teal-400/50",
   danger:
     "bg-red-600 text-white hover:bg-red-700 focus:ring-2 ring-red-300",
 };
