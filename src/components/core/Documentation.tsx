@@ -20,8 +20,6 @@ import {
   FiAward,
   FiShield,
   FiExternalLink,
-  FiLink,
-  FiLogOut,
 } from "react-icons/fi";
 import { ServerStatus } from "./ServerStatus";
 import Link from "next/link";
@@ -51,11 +49,6 @@ const frontendFeatures = [
     icon: FiZap,
     title: "Real-Time Updates",
     description: "React Query for efficient data fetching and caching",
-  },
-  {
-    icon: FiUsers,
-    title: "User Management",
-    description: "Profile management with session handling",
   },
 ];
 
@@ -232,7 +225,7 @@ export function Documentation() {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-600 mb-6">
               <FiZap className="h-4 w-4" />
-              Full-Stack Documentation
+              Project Documentation
             </div>
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               SaaS Link Management
@@ -341,61 +334,6 @@ export function Documentation() {
                 <li>â€¢ Geo IP Database</li>
                 <li>â€¢ User Agent Detection</li>
                 <li>â€¢ Rate Limiting</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* UI Components Section */}
-      <div className="px-4 py-16 sm:px-6 lg:px-8 bg-white">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-4">
-              <FiSquare className="h-8 w-8 text-teal-600" />
-              <h2 className="text-3xl font-bold text-gray-900">Dashboard UI</h2>
-            </div>
-            <p className="mt-2 text-lg text-gray-600">Beautiful dashboard with modern navigation and controls</p>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="rounded-lg border border-gray-200 p-6">
-              <FiLink className="h-8 w-8 text-teal-600 mb-3" />
-              <h3 className="font-semibold text-gray-900">Logo & Branding</h3>
-              <ul className="mt-4 space-y-3 text-sm text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
-                  <span>Custom SVG logo integrated in dashboard header</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
-                  <span>Responsive design works on mobile and tablet</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
-                  <span>Optimized with Next.js Image component</span>
-                </li>
-              </ul>
-            </div>
-            <div className="rounded-lg border border-gray-200 p-6">
-              <FiLogOut className="h-8 w-8 text-teal-600 mb-3" />
-              <h3 className="font-semibold text-gray-900">Logout Button</h3>
-              <ul className="mt-4 space-y-3 text-sm text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
-                  <span>Beautiful red gradient styling with hover effects</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
-                  <span>Icon scales smoothly on hover for interactivity</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
-                  <span>Located in sidebar footer with shadow effects</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="h-2 w-2 bg-teal-500 rounded-full mt-1.5 shrink-0" />
-                  <span>Safely revokes session and redirects to login</span>
-                </li>
               </ul>
             </div>
           </div>
@@ -548,10 +486,6 @@ Content-Type: application/json
                   <li className="flex items-center gap-2">
                     <span className="h-2 w-2 bg-teal-500 rounded-full" />
                     Form Request validation prevents invalid or abusive values
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 bg-teal-500 rounded-full" />
-                    Secure JWT tokens via Laravel Sanctum
                   </li>
                 </ul>
               </div>
