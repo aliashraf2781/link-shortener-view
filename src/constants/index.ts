@@ -13,4 +13,5 @@ export const allowedDomains = [
   "zoho.com",
   "yandex.com",
   "gmx.com",
+  "example.com"
 ];
