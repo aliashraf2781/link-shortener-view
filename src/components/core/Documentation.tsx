@@ -308,33 +308,33 @@ export function Documentation() {
               <FiCode className="h-8 w-8 text-teal-600 mb-3" />
               <h3 className="font-semibold text-gray-900">Frontend</h3>
               <ul className="mt-3 space-y-2 text-sm text-gray-600">
-                <li>â€¢ Next.js 16 App Router</li>
-                <li>â€¢ React 19 with Compiler</li>
-                <li>â€¢ Tailwind CSS v4</li>
-                <li>â€¢ NextAuth.js</li>
-                <li>â€¢ React Query (TanStack)</li>
+                <li> Next.js 16 App Router</li>
+                <li> React 19 with Compiler</li>
+                <li> Tailwind CSS v4</li>
+                <li> NextAuth.js</li>
+                <li> React Query (TanStack)</li>
               </ul>
             </div>
             <div className="rounded-lg border border-gray-200 p-6">
               <FiServer className="h-8 w-8 text-teal-600 mb-3" />
               <h3 className="font-semibold text-gray-900">Backend</h3>
               <ul className="mt-3 space-y-2 text-sm text-gray-600">
-                <li>â€¢ Laravel (PHP)</li>
-                <li>â€¢ Laravel Sanctum Auth</li>
-                <li>â€¢ MySQL Database</li>
-                <li>â€¢ RESTful JSON API</li>
-                <li>â€¢ GeoLocation & Device Detection</li>
+                <li> Laravel (PHP)</li>
+                <li> Laravel Sanctum Auth</li>
+                <li> MySQL Database</li>
+                <li> RESTful JSON API</li>
+                <li> GeoLocation & Device Detection</li>
               </ul>
             </div>
             <div className="rounded-lg border border-gray-200 p-6">
               <FiDatabase className="h-8 w-8 text-teal-600 mb-3" />
               <h3 className="font-semibold text-gray-900">Infrastructure</h3>
               <ul className="mt-3 space-y-2 text-sm text-gray-600">
-                <li>â€¢ MySQL Database</li>
-                <li>â€¢ Sanctum Token Auth</li>
-                <li>â€¢ Geo IP Database</li>
-                <li>â€¢ User Agent Detection</li>
-                <li>â€¢ Rate Limiting</li>
+                <li> MySQL Database</li>
+                <li> Sanctum Token Auth</li>
+                <li> Geo IP Database</li>
+                <li> User Agent Detection</li>
+                <li> Rate Limiting</li>
               </ul>
             </div>
           </div>
