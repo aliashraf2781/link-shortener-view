@@ -16,13 +16,14 @@ import {
   FiTool,
   FiSquare,
   FiSettings,
-  FiWifi,
-  FiAward,
-  FiShield,
   FiExternalLink,
+  FiShield,
 } from "react-icons/fi";
 import { ServerStatus } from "./ServerStatus";
 import Link from "next/link";
+import { FaFlutter, FaLaravel } from "react-icons/fa6";
+import { VscJson } from "react-icons/vsc";
+
 
 const frontendFeatures = [
   {
@@ -276,7 +277,7 @@ export function Documentation() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors"
               >
-                <FiServer className="h-4 w-4" />
+                <FaLaravel  className="h-4 w-4" />
                 Backend
                 <FiExternalLink className="h-3 w-3" />
               </Link>
@@ -286,7 +287,7 @@ export function Documentation() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors"
               >
-                <FiGlobe className="h-4 w-4" />
+                <FaFlutter className="h-4 w-4" />
                 Flutter
                 <FiExternalLink className="h-3 w-3" />
               </Link>
@@ -381,7 +382,7 @@ export function Documentation() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <FiWifi className="h-8 w-8 text-teal-600" />
+              <VscJson className="h-8 w-8 text-teal-600" />
               <h2 className="text-3xl font-bold text-gray-900">API Endpoints</h2>
             </div>
             <p className="mt-2 text-lg text-gray-600">All endpoints are prefixed with <code className="bg-gray-100 px-2 py-1 rounded text-teal-700">/api</code>. Protected routes require <FiLock className="inline h-5 w-5 text-red-600 mx-1" /> and bearer token.</p>
@@ -427,45 +428,6 @@ export function Documentation() {
         </div>
       </div>
 
-      {/* Code Example */}
-      <div className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-4">
-              <FiAward className="h-8 w-8 text-teal-600" />
-              <h2 className="text-3xl font-bold text-gray-900">Example: Generate Short Link</h2>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <div className="rounded-lg bg-gray-900 p-6 text-white font-mono text-sm overflow-x-auto">
-              <pre>{`POST /api/generate
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "original_url": "https://google.com",
-  "title": "Google",
-  "custom_alias": "my-google"
-}`}</pre>
-            </div>
-            <div className="rounded-lg bg-gray-900 p-6 text-white font-mono text-sm overflow-x-auto">
-              <pre>{`{
-  "message": "Short link created",
-  "status": "success",
-  "data": {
-    "id": 1,
-    "original_link": "https://google.com",
-    "short_code": "6nBf9w",
-    "title": "Google",
-    "custom_alias": "my-google",
-    "clicks_count": 0
-  }
-}`}</pre>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Security Section */}
       <div className="px-4 py-16 sm:px-6 lg:px-8 bg-white">
         <div className="mx-auto max-w-6xl">
@@ -493,8 +455,6 @@ Content-Type: application/json
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }
